@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>vue-realize</title>
+  <style>
+    #app {
+      margin: 50px;
+      font-size: 18px;
+    }
+
+    input {
+      height: 28px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <p>名称：<span>{{name}}</span></p>
+  <p v-html="description"></p>
+  <p>
+    名称：<input type="text" v-model="name">
+  </p>
+  <p>
+    <button @click="handleCli">点击按钮</button>
+  </p>
+</div>
+
+<script src="tvue.js"></script>
+<script src="compile.js"></script>
+<script type="text/javascript">
+const tVue = new TVue({
+  el: "#app",
+  data: {
+    name: "Hello,Vue",
+    description: '<div><span>这是一段Html文本</span></div>'
+  },
+  created () {
+  },
+  methods: {
+    handleCli () {
+      this.name = '双向绑定值'
+    }
+  },
+})
+</script>
+</body>
+</html>
